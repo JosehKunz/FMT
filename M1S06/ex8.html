@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Endereço</title>
+    <script>
+        async function buscarEAtualizarEndereco() {
+            if (localStorage.getItem("endereco")) {
+                const querAtualizar = confirm("Já existe um endereço registrado. Deseja buscar um novo?");
+                if (!querAtualizar) {
+                    alert("Operação cancelada.");
+                    return;
+                }
+            }
+
+            const cep = prompt("Digite o CEP para busca:");
+            
+            if (!cep || cep.length !== 8) {
+                alert("Por favor, digite um CEP válido com 8 dígitos.");
+                return;
+            }
+
+            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
+            if (!response.ok) {
+                alert(`Erro na requisição: ${response.statusText}`);
+                return;
+            }
+
+            const endereco = await response.json();
+
+            if (endereco.erro) {
+                alert("CEP não encontrado. Por favor, tente outro CEP.");
+                return;
+            }
+
+            const enderecoFormatado = `${endereco.logradouro}, ${endereco.complemento} - ${endereco.bairro} - ${endereco.localidade}/${endereco.uf}`;
+            const confirmacao = confirm(`O endereço está correto?\n${enderecoFormatado}`);
+
+            if (confirmacao) {
+                localStorage.setItem("endereco", JSON.stringify(endereco));
+                alert("Endereço atualizado com sucesso!");
+            } else {
+                alert("Operação cancelada.");
+            }
+        }
+
+        buscarEAtualizarEndereco(); 
+    </script>
+</head>
+<body>
+</body>
+</html>

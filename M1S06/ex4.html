@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solicitarInformacoesESalvar() {
+            const nome = prompt("Digite seu nome:");
+            const idade = prompt("Digite sua idade:");
+            const email = prompt("Digite seu email:");
+
+            const usuario = {
+                nome: nome,
+                idade: idade,
+                email: email
+            };
+
+            localStorage.setItem("user", JSON.stringify(usuario));
+
+            alert("Informações salvas com sucesso!");
+        }
+        solicitarInformacoesESalvar();
+    </script>
+</body>
+</html>

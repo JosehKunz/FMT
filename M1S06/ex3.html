@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerício número 3</title>
+</head>
+<body>
+    <h1>Informações</h1>
+    <div id="userInfo">
+    </div>
+
+    <script>
+        async function CarregarMostrarInfosUsuario() {
+            try {
+                const response = await fetch('data.json'); // Obtém o arquivo JSON
+                const data = await response.json(); // Converte a resposta para JSON
+                const userInfoDiv = document.getElementById('userInfo');
+
+                // Cria o conteúdo HTML com as informações do usuário
+                userInfoDiv.innerHTML = `
+                    <p>Nome: ${data.nome}</p>
+                    <p>Idade: ${data.idade}</p>
+                    <p>Email: ${data.email}</p>
+                `;
+            } catch (error) {
+                console.error('Erro ao carregar ou exibir as informações do usuário:', error);
+            }
+        }
+
+        // Chama a função ao carregar a página
+        CarregarMostrarInfosUsuario();
+    </script>
+</body>
+</html>
