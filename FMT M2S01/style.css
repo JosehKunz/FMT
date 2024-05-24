@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+div {
+    background-color: #cecece;
+    color: #333; 
+    padding: 10px;
+    margin: 10px 0;
+}
+
+p {
+    font-style: italic;
+}
+
+h1 {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #333; 
+}
