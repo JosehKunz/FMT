@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            align-items: center;
+            font-weight: 200;
+            font-family: Arial, Helvetica, sans-serif ;
+        }
+        h1{ font-family: sans-serif;
+        color: darkslategrey;
+        font-weight: bold;
+            padding-inline-start: 2em;
+            }
+        .container {
+                display: flex;
+                flex-direction: column;
+                max-width: 300px;
+                padding-inline: 5px;
+                background-color: lightgray;
+            }
+            .row {
+                display: flex;
+                flex-direction: row;
+                padding-bottom: 1em;
+                padding-left: 1em;
+            }
+    </style>
+    <title>Calculadora</title>
+</head>
+
+<body>
+<div class ="container">
+    <h1> Calculadora Simples </h1>
+
+    <div class="row">
+        <span> Número 1: </span>
+         <input id="numero1" type = "number"> 
+        </div>
+
+         <div class="row">
+        <span>  Número 2: </span>
+         <input id="numero2" type = "number">
+        </div>
+    <br>
+
+        <button onclick="calcular()"> Calcular</button>
+        <p id="txtResultado">  Resultado Aqui </p>
+    <button> Validar </button>
+    <br>
+</div>
+
+<script>
+    const num1=  document.getElementById('numero1')
+    const num2 =  document.getElementById('numero2')
+    const txtResultado =  document.getElementById('txtResultado')
+
+    function calcular() {
+        console.log('calcula')
+        const resultado = parseInt(num1.value) + parseInt(num2.value)
+        txtResultado.innerText = `Resultado: ${resultado}`
+    }
+</script>
+
+</body>
+</html>

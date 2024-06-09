@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Temperos Brasileiros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            background-color: #ffffff;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .produto-nome {
+            font-weight: bold;
+        }
+        .produto-valor {
+            color: #009688;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lista de Temperos Brasileiros</h1>
+    </header>
+    <main>
+        <ul id="lista-produtos"></ul>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const temperos = [
+                { nome: "Pimenta Malagueta", valor: 5.99 },
+                { nome: "Coentro", valor: 3.99 },
+                { nome: "Colorau", valor: 2.99 },
+                { nome: "Cominho", valor: 4.99 },
+                { nome: "Orégano", valor: 3.49 }
+            ];
+
+            const listaProdutos = document.getElementById('lista-produtos');
+
+            temperos.forEach(tempero => {
+                const itemLista = document.createElement('li');
+                const nomeProduto = document.createElement('span');
+                const valorProduto = document.createElement('span');
+
+                nomeProduto.textContent = tempero.nome;
+                nomeProduto.classList.add('produto-nome');
+                valorProduto.textContent = ` - R$ ${tempero.valor.toFixed(2)}`;
+                valorProduto.classList.add('produto-valor');
+
+                itemLista.appendChild(nomeProduto);
+                itemLista.appendChild(valorProduto);
+                listaProdutos.appendChild(itemLista);
+            });
+        });
+    </script>
+</body>
+</html>
