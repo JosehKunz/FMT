@@ -1,28 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-BR">
+    <head>
+        <title>Netflix</title>
+        <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="menu">
+                <ul id="menu-list">
+                    <li>Sobre</li>
+                    <li>Trailer</li>
+                    <li>
+                        <img alt="Netflix" src="./images/netflix-logo.png">
+                    </li>
+                    <li>Atores</li>
+                    <li>Avaliações</li>       
+                </ul>                
+            </div>
 
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <div class="parent">
-        <div class="div1">  </div>
-        <div class="div2"> </div>
-        <div class="div3"> </div>
-        <div class="div4"> </div>
-        <div class="div5"> </div>
-        <div class="menu"> <img src="./images/menu.png" alt="Menu Image"> </div>
-        <div class="div7"> 
-            <h2 class="m-t-14">Titulo </h2>
-            <h6 class="m-t-28"> Drama, Mistério, Terror</h6>
-            <span>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id lectus id mauris porttitor rutrum sit amet vel augue. Nam varius efficitur sem eu varius. Donec ut diam est. Proin venenatis sodales lorem fermentum tempus. Nulla lobortis suscipit neque. Ler mais. </div>
-            </span>
-                <div class="div8">  imagem </div>
-        <div class="div9"> redes sociais </div>
-        <div class="div10"> assinatura </div>
+            <div class="row ph-30 gap-150 pt-50">
+                <div class="info_serie">
+                    <h4 class="titulo">SuperNatural</h4>
+                    <h6 class="genero m-t-14 m-b-28">Drama, Mistério, Terror</h6>
+                    <span class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum voluptates qui fugiat molestias quia necessitatibus labore deleniti, optio dolor odit adipisci alias maiores. Rerum quis quae perspiciatis fugit qui in.</span>
+    
+                    <div class="row m-t-56">
+                        <span>1ª Temporada</span>
+                        <img src="./images/chevron-left.png">
+                        <img src="./images/chevron-right.png">
+                    </div>
+    
+                    <div id="lista-episodios"  class="episodios">
+                        <!-- <div class="card-episodio"></div> -->   
+                    </div>
+                </div>
+    
+                <img class="poster" src="./images/poster.png">
+                    
+            </div>
+
+
+            <div class="social">
+                <img src="./images/facebook.png" alt="Compartilhar no Facebook" onclick="compartilhar('facebook')">
+                <img src="./images/instagram.png" alt="Compartilhar no Instagram" onclick="compartilhar('instagram')">
+                <img src="./images/twitter.png" alt="Compartilhar no Twitter" onclick="compartilhar('twitter')">
+            </div>
         </div>
-</body>
+    </body>
+    
+    <script src="./script.js"></script>
+
 </html>
