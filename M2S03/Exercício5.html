@@ -57,27 +57,26 @@
     const btnAdicionarTarefa = document.getElementById('adicionar-tarefa');
     const listaTarefas = document.getElementById('lista-tarefas');
 
-    // Função para adicionar uma nova tarefa à lista
+
     function adicionarTarefa() {
-        const novaTarefa = inputTarefa.value.trim(); // Remove espaços em branco no início e no fim
+        const novaTarefa = inputTarefa.value.trim(); 
         if (novaTarefa !== '') {
             const li = document.createElement('li');
             li.textContent = novaTarefa;
             li.addEventListener('click', marcarTarefaConcluida);
             listaTarefas.appendChild(li);
-            inputTarefa.value = ''; // Limpa o campo de entrada após adicionar a tarefa
+            inputTarefa.value = ''; 
         }
     }
 
-    // Função para marcar a tarefa como concluída
     function marcarTarefaConcluida() {
         this.classList.toggle('done');
     }
 
-    // Adiciona evento de clique ao botão para adicionar tarefa
+
     btnAdicionarTarefa.addEventListener('click', adicionarTarefa);
 
-    // Adiciona evento de pressionar Enter no campo de entrada para adicionar tarefa
+  
     inputTarefa.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             adicionarTarefa();
