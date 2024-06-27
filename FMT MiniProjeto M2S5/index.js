@@ -91,4 +91,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     carregarNoticiaPatrocinada();
+    setInterval(carregarNoticiaPatrocinada, 300000);
 });
