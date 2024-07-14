@@ -1,0 +1,32 @@
+.nosso-contato {
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    justify-content: space-evenly; 
+    background-color: black;
+}
+
+.local, .form {
+    padding: 45px;
+    border-radius: 6px;
+}
+
+.local {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+li span {
+    display: block;
+    text-align: left;    
+}
+
+.form {
+    
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    gap: 6%;
+
+}
