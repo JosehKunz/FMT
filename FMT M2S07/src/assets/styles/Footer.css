@@ -1,0 +1,24 @@
+.Footer {
+    justify-content: space-between; 
+    align-items: left;
+    padding-bottom: 40px;
+    padding: 20px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background-color: #0e0e0e; 
+    display: block;
+    unicode-bidi: isolate;
+    display: flex;
+
+}
+
+
+.footer-menu {
+    display: flex;
+    gap: 2em; 
+
+    list-style: none;
+    align-items: right;
+
+}
