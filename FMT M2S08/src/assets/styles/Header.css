@@ -1,0 +1,42 @@
+.Header {
+    justify-content: space-between; 
+    align-items: left;
+    padding-bottom: 40px;
+    padding: 20px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background-color: #0e0e0e; 
+    display: block;
+    unicode-bidi: isolate;
+    display: flex;
+
+}
+
+
+  
+
+.header-menu {
+    display: flex;
+    gap: 2em; 
+    margin: 0; 
+    padding: 0;
+    list-style: none;
+    align-items: right;
+
+}
+
+li {
+    display: block; 
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
