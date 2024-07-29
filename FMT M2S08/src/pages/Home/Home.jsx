@@ -4,6 +4,8 @@ import CategoriaProduto from "../../components/CategoriaProduto/CategoriaProduto
 import Hero from "../../components/Hero/Hero"
 import Modal18 from "../../components/Modal/Modal"
 import './Home.css'
+import Header from "../../components/Header/Header"
+
 
 
 
@@ -58,6 +60,9 @@ function Home() {
             <div className="content">
 
                 <h1></h1>
+
+        <Header></Header>
+
         <Modal18></Modal18>        
         <Hero></Hero>
                 <div className="lista-categorias">
