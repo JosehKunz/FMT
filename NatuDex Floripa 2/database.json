@@ -1,0 +1,65 @@
+{
+  "localidades": [
+    {
+      "id": "qncllhume",
+      "nome": "José",
+      "descricao": "teste",
+      "cep": "88058500",
+      "localizacao": "88058-500, Ingleses Centro, Ingleses do Rio Vermelho, Florianópolis, Região Geográfica Imediata de Florianópolis, Região Geográfica Intermediária de Florianópolis, Santa Catarina, Região Sul, Brasil",
+      "latitude": "-27.4321397875",
+      "longitude": "-48.3966397875",
+      "avaliacao": "1",
+      "userId": "6ogc239vb"
+    },
+    {
+      "id": "x9r7mlufc",
+      "nome": "José",
+      "descricao": "teste",
+      "cep": "88058500",
+      "localizacao": "88058-500, Ingleses Centro, Ingleses do Rio Vermelho, Florianópolis, Região Geográfica Imediata de Florianópolis, Região Geográfica Intermediária de Florianópolis, Santa Catarina, Região Sul, Brasil",
+      "latitude": "-27.4321397875",
+      "longitude": "-48.3966397875",
+      "avaliacao": "2",
+      "userId": "6ogc239vb"
+    },
+    {
+      "id": "ibuvhx27f",
+      "nome": "José",
+      "descricao": "teste",
+      "cep": "88058500",
+      "localizacao": "88058-500, Ingleses Centro, Ingleses do Rio Vermelho, Florianópolis, Região Geográfica Imediata de Florianópolis, Região Geográfica Intermediária de Florianópolis, Santa Catarina, Região Sul, Brasil",
+      "latitude": "-27.4321397875",
+      "longitude": "-48.3966397875",
+      "avaliacao": "3",
+      "userId": "6ogc239vb"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "6ogc239vb",
+      "nome": "MARCIA",
+      "sexo": "Masculino",
+      "cpf": "024.950.460-02",
+      "dataNascimento": "2024-08-06",
+      "email": "josekunz@gmail.com",
+      "senha": "teste",
+      "cep": "88058500",
+      "endereco": "",
+      "latitude": "",
+      "longitude": ""
+    },
+    {
+      "id": "6ldch5gaq",
+      "nome": "teste",
+      "sexo": "Masculino",
+      "cpf": "024.950.460-03",
+      "dataNascimento": "2024-08-06",
+      "email": "teste@teste",
+      "senha": "teste",
+      "cep": "88058500",
+      "endereco": "88058-500, Ingleses Centro, Ingleses do Rio Vermelho, Florianópolis, Região Geográfica Imediata de Florianópolis, Região Geográfica Intermediária de Florianópolis, Santa Catarina, Região Sul, Brasil",
+      "latitude": "-27.4321397875",
+      "longitude": "-48.3966397875"
+    }
+  ]
+}

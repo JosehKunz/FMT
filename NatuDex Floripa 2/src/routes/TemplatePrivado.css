@@ -1,0 +1,10 @@
+.app-container {
+    display: flex;
+  }
+  
+  .main-content {
+    margin-left: 200px; /* mesma largura do side-menu */
+    padding: 20px;
+    flex-grow: 1;
+  }
+  
