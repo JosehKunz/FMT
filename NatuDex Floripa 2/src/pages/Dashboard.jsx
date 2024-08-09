@@ -1,37 +1,69 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 function Dashboard() {
-  const [usuarios, setUsuarios] = useState([])
-  const [locais, setLocais] = useState([])
+  const [totalLocais, setTotalLocais] = useState(0);
+  const [totalUsuarios, setTotalUsuarios] = useState(0);
+  const [locais, setLocais] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      const usuariosResponse = await fetch('http://localhost:3000/usuarios')
-      const locaisResponse = await fetch('http://localhost:3000/localidades')
-      setUsuarios(await usuariosResponse.json())
-      setLocais(await locaisResponse.json())
+    async function carregarDados() {
+      const locaisResposta = await fetch('http://localhost:3000/localidades');
+      const locaisData = await locaisResposta.json();
+      setTotalLocais(locaisData.length);
+      setLocais(locaisData);
+
+      const usuariosResposta = await fetch('http://localhost:3000/usuarios');
+      const usuariosData = await usuariosResposta.json();
+      setTotalUsuarios(usuariosData.length);
     }
-    fetchData()
-  }, [])
+
+    carregarDados();
+  }, []);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <div>
-        <h2>Usuários Ativos: {usuarios.length}</h2>
-        <h2>Locais Cadastrados: {locais.length}</h2>
-      </div>
-      <div>
+    <Container>
+      <h1 className="text-right mt-4 mb-4">Dashboard</h1>
+      <Row className="justify-content-md-right mb-3">
+        <Col md="4">
+          <Card>
+            <Card.Body>
+              <Card.Title>Total de Locais</Card.Title>
+              <Card.Text>{totalLocais}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md="4">
+          <Card>
+            <Card.Body>
+              <Card.Title>Total de Usuários Ativos</Card.Title>
+              <Card.Text>{totalUsuarios}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      <hr className="my-4" />
+
+      <h4 className="text-right mt-4 mb-4">Confira os locais de preservação cadastrados!</h4>
+
+      <Row>
         {locais.map(local => (
-          <div key={local.id}>
-            <h3>{local.nome}</h3>
-            <p>{local.descricao}</p>
-            <p>{local.localizacao}</p>
-          </div>
+          <Col md="6" className="mb-3" key={local.id}>
+            <Card>
+              <Card.Body>
+                <Card.Title>{local.nome}</Card.Title>
+                <Card.Text className="small-text" >Nota do Usuário: {local.avaliacao} </Card.Text>
+                <Card.Text>{local.descricao}</Card.Text>
+                <Card.Text className="small-text">{local.localizacao}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
-    </div>
-  )
+      </Row>
+    </Container>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

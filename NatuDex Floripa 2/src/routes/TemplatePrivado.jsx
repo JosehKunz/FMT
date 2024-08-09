@@ -10,9 +10,9 @@ export function TemplatePrivado() {
     <div className="app-container">
       <SideMenu />
       <div className="main-content">
-        <nav className="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-light ">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">NatuDex</a>
+            <a className="btn btn-dark" href="#">NatuDex</a>
             <button className='btn btn-dark' onClick={() => {
               localStorage.removeItem('autenticado')
               localStorage.removeItem('userId')

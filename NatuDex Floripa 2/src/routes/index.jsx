@@ -1,6 +1,5 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import Form from '../pages/Form'
-import List from '../pages/List'
 import Login from '../pages/login'
 import Dashboard from '../pages/Dashboard'
 import NatuDexForm from '../pages/NatuDexForm'

@@ -3,8 +3,8 @@
   }
   
   .main-content {
-    margin-left: 200px; /* mesma largura do side-menu */
-    padding: 20px;
+    margin-left: 10px; 
+    padding: 15px;
     flex-grow: 1;
   }
   

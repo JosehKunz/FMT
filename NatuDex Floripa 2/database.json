@@ -32,6 +32,26 @@
       "longitude": "-48.3966397875",
       "avaliacao": "3",
       "userId": "6ogc239vb"
+    },
+    {
+      "id": "2f09",
+      "nome": "José Oswaldo Kunz Neto",
+      "descricao": "2",
+      "cep": "90850000",
+      "localizacao": "90850-000, Santa Tereza, Porto Alegre, Região Geográfica Imediata de Porto Alegre, Região Metropolitana de Porto Alegre, Região Geográfica Intermediária de Porto Alegre, Rio Grande do Sul, Região Sul, Brasil",
+      "userId": "6ldch5gaq",
+      "latitude": "-30.0720892",
+      "longitude": "-51.23077185"
+    },
+    {
+      "id": "dd1f",
+      "nome": "Minha nova casa",
+      "descricao": "Testando!",
+      "cep": "88066260",
+      "localizacao": "88066-260, Armação do Pântano do Sul, Pântano do Sul, Florianópolis, Região Geográfica Imediata de Florianópolis, Região Geográfica Intermediária de Florianópolis, Santa Catarina, Região Sul, Brasil",
+      "userId": "6ldch5gaq",
+      "latitude": "-27.7577737",
+      "longitude": "-48.509641"
     }
   ],
   "usuarios": [

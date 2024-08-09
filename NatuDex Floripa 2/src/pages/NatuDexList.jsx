@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Modal, Button } from 'react-bootstrap';
+import { Table, Button, Container, Modal, Form } from 'react-bootstrap';
 
 function NatuDexList() {
   const navigate = useNavigate();
@@ -65,17 +65,17 @@ function NatuDexList() {
   }
 
   return (
-    <div>
-      <button onClick={() => navigate('/natudex-form')}>Cadastrar Nova Área</button>
-      <table border="1">
+    <Container>
+      <Button variant="success" onClick={() => navigate('/natudex-form')} className="mt-3 mb-3">Cadastrar Nova Área</Button>
+      <Table bordered hover>
         <thead>
           <tr>
-            <td>Nome</td>
-            <td>Descrição</td>
-            <td>Localização</td>
-            <td>Latitude</td>
-            <td>Longitude</td>
-            <td></td>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Localização</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -87,16 +87,16 @@ function NatuDexList() {
               <td>{local.latitude}</td>
               <td>{local.longitude}</td>
               <td>
-                <button onClick={() => handleEdit(local)}>Editar</button>
-                <button onClick={() => {
+                <Button variant="warning" onClick={() => handleEdit(local)} className="me-2 btn-spacing">Editar</Button>
+                <Button variant="danger" onClick={() => {
                   setSelectedLocal(local);
                   setShowDeleteModal(true);
-                }}>Deletar</button>
+                }} className="btn-spacing">Deletar</Button>
               </td>
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
 
       {/* Modal de Confirmação de Deleção */}
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
@@ -120,34 +120,34 @@ function NatuDexList() {
           <Modal.Title>Editar Localidade</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSaveEdit}>
-            <div className="mb-3">
-              <label htmlFor="nome" className="form-label">Nome</label>
-              <input type="text" className="form-control" id="nome" defaultValue={selectedLocal?.nome} name="nome" />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="descricao" className="form-label">Descrição</label>
-              <textarea className="form-control" id="descricao" defaultValue={selectedLocal?.descricao} name="descricao"></textarea>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="localizacao" className="form-label">Localização</label>
-              <input type="text" className="form-control" id="localizacao" defaultValue={selectedLocal?.localizacao} name="localizacao" />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="latitude" className="form-label">Latitude</label>
-              <input type="text" className="form-control" id="latitude" defaultValue={selectedLocal?.latitude} name="latitude" />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="longitude" className="form-label">Longitude</label>
-              <input type="text" className="form-control" id="longitude" defaultValue={selectedLocal?.longitude} name="longitude" />
-            </div>
+          <Form onSubmit={handleSaveEdit}>
+            <Form.Group className="mb-3" controlId="formNome">
+              <Form.Label>Nome</Form.Label>
+              <Form.Control type="text" defaultValue={selectedLocal?.nome} name="nome" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formDescricao">
+              <Form.Label>Descrição</Form.Label>
+              <Form.Control as="textarea" defaultValue={selectedLocal?.descricao} name="descricao" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formLocalizacao">
+              <Form.Label>Localização</Form.Label>
+              <Form.Control type="text" defaultValue={selectedLocal?.localizacao} name="localizacao" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formLatitude">
+              <Form.Label>Latitude</Form.Label>
+              <Form.Control type="text" defaultValue={selectedLocal?.latitude} name="latitude" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formLongitude">
+              <Form.Label>Longitude</Form.Label>
+              <Form.Control type="text" defaultValue={selectedLocal?.longitude} name="longitude" />
+            </Form.Group>
             <Button variant="primary" type="submit">
               Salvar
             </Button>
-          </form>
+          </Form>
         </Modal.Body>
       </Modal>
-    </div>
+    </Container>
   );
 }
 

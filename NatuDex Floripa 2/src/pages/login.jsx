@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
+import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import '../styles.css'
 
 function Login() {
   const navigate = useNavigate()
@@ -32,16 +34,36 @@ function Login() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="Email" type="email" name="email" />
-        <input placeholder="Senha" type="password" name="senha" />
-        <button type="submit">Logar</button>
-      </form>
-      {error && <p>{error}</p>}
-      <Link to="/form">
-        <button type="button">Cadastrar</button>
-      </Link>
+    <div className="login-container">
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col md="4">
+            <div className="login-form">
+              <div className="logo-container">
+                <img src="/logo-grande.png" alt="Logo" />
+              </div>
+              <h1 className="text-center">Login</h1>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="formEmail">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" placeholder="Enter email" name="email" />
+                </Form.Group>
+                <Form.Group controlId="formPassword">
+                  <Form.Label>Senha</Form.Label>
+                  <Form.Control type="password" placeholder="Senha" name="senha" />
+                </Form.Group>
+                <Button variant="secondary btn-sm" type="submit" className="mt-3">
+                  Logar
+                </Button>
+              </Form>
+              {error && <p className="text-danger mt-3">{error}</p>}
+              <Link to="/form" className="d-block mt-3">
+                <Button variant="light btn-sm" >Cadastrar</Button>
+              </Link>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   )
 }

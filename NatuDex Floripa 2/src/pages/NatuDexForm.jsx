@@ -1,112 +1,154 @@
-import { useState } from "react"
-import { useForm } from "react-hook-form"
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useParams, useNavigate } from "react-router-dom";
+import { Container, Row, Col, Form as BootstrapForm, Button } from 'react-bootstrap';
 
 function NatuDexForm() {
-  const { register, handleSubmit, setValue, formState } = useForm()
-  const [cepError, setCepError] = useState('')
-  const userId = localStorage.getItem('userId')
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { register, handleSubmit, setValue, formState } = useForm();
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
+  useEffect(() => {
+    if (id) {
+      async function fetchLocal() {
+        const response = await fetch(`http://localhost:3000/localidades/${id}`);
+        const data = await response.json();
+        setValue('nome', data.nome);
+        setValue('descricao', data.descricao);
+        setValue('cep', data.cep);
+        setValue('localizacao', data.localizacao);
+        setLatitude(data.latitude);
+        setLongitude(data.longitude);
+      }
+      fetchLocal();
+    }
+  }, [id, setValue]);
 
   async function fetchAddress(cep) {
     try {
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&country=BR&postalcode=${cep}`)
-      const data = await response.json()
+      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&country=BR&postalcode=${cep}`);
+      const data = await response.json();
       if (data && data.length > 0) {
-        const address = data[0]
-        setValue('localizacao', address.display_name)
-        setValue('latitude', address.lat)
-        setValue('longitude', address.lon)
+        const address = data[0];
+        setValue('localizacao', address.display_name);
+        setLatitude(address.lat);
+        setLongitude(address.lon);
       } else {
-        throw new Error('CEP não encontrado')
+        throw new Error('CEP não encontrado');
       }
     } catch (error) {
-      setCepError('Erro ao buscar endereço')
+      alert('Erro ao buscar endereço');
     }
   }
 
-  async function addNatuDex(values) {
+  async function onSubmit(values) {
+    const method = id ? 'PUT' : 'POST';
+    const url = id ? `http://localhost:3000/localidades/${id}` : 'http://localhost:3000/localidades';
+    const userId = localStorage.getItem('userId');
+
+    const data = {
+      ...values,
+      userId,
+      latitude,
+      longitude
+    };
+
     try {
-      const response = await fetch('http://localhost:3000/localidades', {
-        method: 'POST',
+      const response = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          ...values,
-          userId,
-          id: Math.random().toString(36).substr(2, 9)
-        })
-      })
+        body: JSON.stringify(data)
+      });
 
-      if (response.ok === false) {
-        alert("Houve um erro ao cadastrar a área de preservação")
+      if (response.ok) {
+        alert("Operação realizada com sucesso");
+        navigate('/dashboard');
       } else {
-        alert("Área de preservação cadastrada com sucesso")
+        alert("Houve um erro ao realizar a operação");
       }
     } catch (error) {
-      alert("Houve um erro ao cadastrar a área de preservação - NO CATCH")
+      alert("Houve um erro ao realizar a operação - NO CATCH");
     }
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(addNatuDex)}>
-        <input
-          placeholder='Nome do Local'
-          {...register('nome', { required: 'O nome do local é obrigatório' })}
-        />
-        {formState.errors?.nome?.message}
+    <Container>
+      <Row className="justify-content-md-center">
+        <Col md="6">
+          <h1 className="text-center mt-3 mb-3">{id ? 'Editar Local' : 'Cadastrar Novo Local'}</h1>
+          <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
+            <BootstrapForm.Group controlId="formNome" className="mb-3">
+              <BootstrapForm.Label>Nome</BootstrapForm.Label>
+              <BootstrapForm.Control
+                type="text"
+                placeholder="Nome"
+                {...register('nome', { required: 'O nome é obrigatório' })}
+              />
+              {formState.errors?.nome && <p className="text-danger">{formState.errors.nome.message}</p>}
+            </BootstrapForm.Group>
 
-        <br />
+            <BootstrapForm.Group controlId="formDescricao" className="mb-3">
+              <BootstrapForm.Label>Descrição</BootstrapForm.Label>
+              <BootstrapForm.Control
+                as="textarea"
+                placeholder="Descrição"
+                {...register('descricao', { required: 'A descrição é obrigatória' })}
+              />
+              {formState.errors?.descricao && <p className="text-danger">{formState.errors.descricao.message}</p>}
+            </BootstrapForm.Group>
 
-        <textarea
-          placeholder='Descrição do Local'
-          {...register('descricao', { required: 'A descrição do local é obrigatória' })}
-        />
-        {formState.errors?.descricao?.message}
+            <BootstrapForm.Group controlId="formCEP" className="mb-3">
+              <BootstrapForm.Label>CEP</BootstrapForm.Label>
+              <BootstrapForm.Control
+                type="text"
+                placeholder="CEP"
+                {...register('cep')}
+                onBlur={(e) => fetchAddress(e.target.value)}
+              />
+            </BootstrapForm.Group>
 
-        <br />
+            <BootstrapForm.Group controlId="formLocalizacao" className="mb-3">
+              <BootstrapForm.Label>Localização</BootstrapForm.Label>
+              <BootstrapForm.Control
+                type="text"
+                placeholder="Localização"
+                {...register('localizacao')}
+                readOnly
+              />
+            </BootstrapForm.Group>
 
-        <input
-          placeholder='CEP'
-          {...register('cep')}
-          onBlur={(e) => fetchAddress(e.target.value)}
-        />
-        {cepError && <p>{cepError}</p>}
+            <BootstrapForm.Group controlId="formLatitude" className="mb-3">
+              <BootstrapForm.Label>Latitude</BootstrapForm.Label>
+              <BootstrapForm.Control
+                type="text"
+                placeholder="Latitude"
+                value={latitude}
+                readOnly
+              />
+            </BootstrapForm.Group>
 
-        <input
-          placeholder='Localização'
-          {...register('localizacao')}
-          readOnly
-        />
+            <BootstrapForm.Group controlId="formLongitude" className="mb-3">
+              <BootstrapForm.Label>Longitude</BootstrapForm.Label>
+              <BootstrapForm.Control
+                type="text"
+                placeholder="Longitude"
+                value={longitude}
+                readOnly
+              />
+            </BootstrapForm.Group>
 
-        <input
-          placeholder='Latitude'
-          {...register('latitude')}
-          readOnly
-          hidden
-        />
-
-        <input
-          placeholder='Longitude'
-          {...register('longitude')}
-          readOnly
-          hidden
-        />
-
-        <input
-          placeholder='Avaliação (1 a 5 estrelas)'
-          type='number'
-          min='1'
-          max='5'
-          step='1'
-          {...register('avaliacao', { required: 'A avaliação é obrigatória' })}
-        />
-        {formState.errors?.avaliacao?.message}
-
-        <button type="submit">Cadastrar Área</button>
-      </form>
-    </div>
-  )
+            <Button variant="primary" type="submit" className="btn-spacing">
+              {id ? 'Salvar' : 'Cadastrar'}
+            </Button>
+          </BootstrapForm>
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
-export default NatuDexForm
+export default NatuDexForm;
