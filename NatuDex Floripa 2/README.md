@@ -47,15 +47,10 @@ NatuDex é uma aplicação web para o gerenciamento de áreas de preservação d
 # Logo após, acesse o aplicativo e divirta-se!
 (http://localhost:5173/)
 
-
-## Estrutura das pastas
-├── public/              # Arquivos estáticos, como imagens e ícones
-├── src/                 # Código-fonte da aplicação
-│   ├── assets/          # Arquivos de mídia, como SVGs e imagens
-│   ├── components/      # Componentes reutilizáveis da aplicação
-│   ├── pages/           # Páginas principais da aplicação
-│   ├── routes/          # Configuração das rotas da aplicação
-│   ├── App.jsx          # Componente principal da aplicação
-│   ├── main.jsx         # Arquivo de entrada da aplicação
-│   └── styles.css       # Estilos globais da aplicação
-└── README.md            # Documentação do projeto
+#
+#
+#
+#
+## Nome: José Oswaldo Kunz Neto
+## E-mail: josekunz@gmai.com    
+## LinkedIn: (https://www.linkedin.com/in/josekunz/)
