@@ -44,7 +44,7 @@ NatuDex é uma aplicação web para o gerenciamento de áreas de preservação d
 `npx json-server --watch database.json`
 `npm run start:dev`
 
-## Logo após, acesse o doc da API
+# Logo após, acesse o aplicativo e divirta-se!
 (http://localhost:5173/)
 
 
