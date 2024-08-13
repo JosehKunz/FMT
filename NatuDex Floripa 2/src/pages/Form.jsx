@@ -64,7 +64,7 @@ function Form() {
     <Container>
       <Row className="justify-content-md-center">
         <Col md="6">
-          <h1 className="text-center mt-3 mb-3">Cadastro</h1>
+          <h1 className="text-center mt-4 mb-4">Faça seu cadastro aqui</h1>
           <BootstrapForm onSubmit={handleSubmit(addUser)}>
             <BootstrapForm.Group controlId="formNome" className="mb-3">
               <BootstrapForm.Label>Nome</BootstrapForm.Label>

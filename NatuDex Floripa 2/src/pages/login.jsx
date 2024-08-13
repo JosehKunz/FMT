@@ -42,15 +42,15 @@ function Login() {
               <div className="logo-container">
                 <img src="/logo-grande.png" alt="Logo" />
               </div>
-              <h1 className="text-center">Login</h1>
+              <h1 className="text-center">Seja muito bem-vindo(a)!</h1>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formEmail">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" name="email" />
+                  <Form.Label>E-mail</Form.Label>
+                  <Form.Control type="email" placeholder="Digite seu e-mail" name="email" />
                 </Form.Group>
                 <Form.Group controlId="formPassword">
                   <Form.Label>Senha</Form.Label>
-                  <Form.Control type="password" placeholder="Senha" name="senha" />
+                  <Form.Control type="password" placeholder="Digite sua senha" name="senha" />
                 </Form.Group>
                 <Button variant="secondary btn-sm" type="submit" className="mt-3">
                   Logar
