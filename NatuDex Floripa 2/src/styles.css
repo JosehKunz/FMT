@@ -49,11 +49,6 @@
     margin: 3px;
   }
 
-  .small-text {
-    font-size: 0.80rem;
-    color: #666;
-    font-style: italic;
-  }
   
 
   .login-container {
@@ -86,4 +81,21 @@
   .form-control, .text-center{
     margin-bottom: 20px;
     font-size: small;
+  }
+
+  .icon {
+    width: 8%;
+    height: 8%;
+  }
+
+.card-text{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; }
+
+
+  .small-text {
+    font-size: 0.80rem;
+    color: #666;
+    font-style: italic;
   }

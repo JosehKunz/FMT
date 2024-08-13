@@ -1,8 +1,8 @@
 .sidemenu {
-  width: 20%;
+  width: 15%;
   background-color: var(--cinza-escuro);
   padding: 20px;
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 .sidemenu a {
@@ -15,7 +15,7 @@
 
 .sidemenu a:hover {
   background-color: var(--verde-claro);
-  color: var(--verde-escuro);
+  color: var(--bege-claro);
   padding-right: 10px;
 }
 

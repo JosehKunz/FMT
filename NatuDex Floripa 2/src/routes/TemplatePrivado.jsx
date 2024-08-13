@@ -12,8 +12,8 @@ export function TemplatePrivado() {
       <div className="main-content">
         <nav className="navbar navbar-light ">
           <div className="container-fluid">
-            <a className="btn btn-dark" href="#">NatuDex</a>
-            <button className='btn btn-dark' onClick={() => {
+          <img src="/logo-grande.png" alt="Logo" className="img-logo" />
+          <button className='btn btn-dark' onClick={() => {
               localStorage.removeItem('autenticado')
               localStorage.removeItem('userId')
               window.location.href = '/'

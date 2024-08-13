@@ -28,8 +28,8 @@ function Dashboard() {
         <Col md="4">
           <Card>
             <Card.Body>
-              <Card.Title>Total de Locais</Card.Title>
-              <Card.Text>{totalLocais}</Card.Text>
+              <Card.Title><img src="/pin.png" alt="Icone Usuários" className = "icon"/> Total de Locais</Card.Title>
+              <Card.Text className="card-text">{totalLocais}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -37,8 +37,8 @@ function Dashboard() {
         <Col md="4">
           <Card>
             <Card.Body>
-              <Card.Title>Total de Usuários Ativos</Card.Title>
-              <Card.Text>{totalUsuarios}</Card.Text>
+              <Card.Title> <img src="/pessoas.png" alt="Icone Usuários" className = "icon"/> Total de Usuários Ativos</Card.Title>
+              <Card.Text className="card-text">{totalUsuarios}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
