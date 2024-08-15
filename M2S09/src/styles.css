@@ -95,7 +95,12 @@
 
 
   .small-text {
-    font-size: 0.80rem;
+    font-size: 0.60rem;
     color: #666;
     font-style: italic;
+  }
+
+  .text {
+    font-size: 0.80rem;
+    color: #030d05;
   }

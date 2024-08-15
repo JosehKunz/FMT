@@ -21,6 +21,7 @@ function NatuDexForm() {
         setValue('localizacao', data.localizacao);
         setLatitude(data.latitude);
         setLongitude(data.longitude);
+        setValue('avaliacao', data.avaliacao);
       }
       fetchLocal();
     }
@@ -139,6 +140,22 @@ function NatuDexForm() {
                 value={longitude}
                 readOnly
               />
+            </BootstrapForm.Group>
+
+            <BootstrapForm.Group controlId="formAvaliacao" className="mb-3">
+              <BootstrapForm.Label>Avaliação</BootstrapForm.Label>
+              <BootstrapForm.Control
+                as="select"
+                {...register('avaliacao', { required: 'A avaliação é obrigatória' })}
+              >
+                <option value="">Selecione a avaliação</option>
+                <option value="1">1 - Muito Ruim</option>
+                <option value="2">2 - Ruim</option>
+                <option value="3">3 - Médio</option>
+                <option value="4">4 - Bom</option>
+                <option value="5">5 - Excelente</option>
+              </BootstrapForm.Control>
+              {formState.errors?.avaliacao && <p className="text-danger">{formState.errors.avaliacao.message}</p>}
             </BootstrapForm.Group>
 
             <Button variant="primary" type="submit" className="btn-spacing">

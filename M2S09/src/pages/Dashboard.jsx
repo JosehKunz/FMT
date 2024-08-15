@@ -55,7 +55,7 @@ function Dashboard() {
               <Card.Body>
                 <Card.Title>{local.nome}</Card.Title>
                 <Card.Text className="small-text" >Nota do Usuário: {local.avaliacao} </Card.Text>
-                <Card.Text>{local.descricao}</Card.Text>
+                <Card.Text className="text" >{local.descricao}</Card.Text>
                 <Card.Text className="small-text">{local.localizacao}</Card.Text>
               </Card.Body>
             </Card>

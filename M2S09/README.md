@@ -22,6 +22,9 @@ NatuDex é uma aplicação web para o gerenciamento de áreas de preservação d
 - **JSON Server:** Mock server para simulação de uma API RESTful.
 - **OpenStreetMap API:** Para obtenção de dados de localização a partir do CEP.
 
+## Próximos melhorias possíveis
+- **Front-End:** Melhorar o lay-out de forma mais clean, sem perder a riqueza de detalhes e conceito. Deixar fundo dos formulários com um tom mais escuro para destacar mais do background.
+- **Back-End:** Mais detalhes sobre cada local registrado, alimentado diretamente via API.
 
 # 🌱 Pacotes/Instalações
 
@@ -42,7 +45,7 @@ NatuDex é uma aplicação web para o gerenciamento de áreas de preservação d
 
 ## Para rodar o repositório em ambiente local, utilize os dois códigos abaixo em terminais distintos, mas dentro da pasta do projeto
 `npx json-server --watch database.json`
-`npm run start:dev`
+`npm run dev`
 
 # Logo após, acesse o aplicativo e divirta-se!
 (http://localhost:5173/)
